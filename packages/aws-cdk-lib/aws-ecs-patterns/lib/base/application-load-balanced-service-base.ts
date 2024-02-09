@@ -3,7 +3,7 @@ import { Certificate, CertificateValidation, ICertificate } from '../../../aws-c
 import { IVpc } from '../../../aws-ec2';
 import {
   AwsLogDriver, BaseService, CloudMapOptions, Cluster, ContainerImage, DeploymentController, DeploymentCircuitBreaker,
-  ICluster, LogDriver, PropagatedTagSource, Secret, CapacityProviderStrategy,
+  ICluster, LogDriver, PropagatedTagSource, Secret, CapacityProviderStrategy, ServiceConnectProps,
 } from '../../../aws-ecs';
 import {
   ApplicationListener, ApplicationLoadBalancer, ApplicationProtocol, ApplicationProtocolVersion, ApplicationTargetGroup,
@@ -277,6 +277,14 @@ export interface ApplicationLoadBalancedServiceBaseProps {
    * @default - CloudFormation sets idle timeout to 60 seconds
    */
   readonly idleTimeout?: Duration;
+
+  /**
+   * Configuration for Service Connect.
+   *
+   * @default No ports are advertised via Service Connect on this service, and the service
+   * cannot make requests to other services via Service Connect.
+   */
+  readonly serviceConnectConfiguration?: ServiceConnectProps;
 }
 
 export interface ApplicationLoadBalancedTaskImageOptions {

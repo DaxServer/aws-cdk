@@ -158,6 +158,7 @@ export class ApplicationLoadBalancedEc2Service extends ApplicationLoadBalancedSe
       placementConstraints: props.placementConstraints,
       placementStrategies: props.placementStrategies,
       capacityProviderStrategies: props.capacityProviderStrategies,
+      serviceConnectConfiguration: props.serviceConnectConfiguration,
     });
     this.addServiceAsTarget(this.service);
   }

@@ -138,6 +138,7 @@ export class ApplicationLoadBalancedFargateService extends ApplicationLoadBalanc
       vpcSubnets: props.taskSubnets,
       enableExecuteCommand: props.enableExecuteCommand,
       capacityProviderStrategies: props.capacityProviderStrategies,
+      serviceConnectConfiguration: props.serviceConnectConfiguration,
     });
     this.addServiceAsTarget(this.service);
   }
